@@ -4,8 +4,11 @@ var sensorsRoutes = require('./../routes/sensors');
 var resources = require('./../resources/model');
 var converter = require('./../middleware/converter');
 var cors = require('cors');
+var bodyParser = require('body-parser');
 
 var app = express();
+
+app.use(bodyParser.json());
 
 app.use(cors());
 
