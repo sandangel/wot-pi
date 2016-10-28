@@ -15,5 +15,9 @@
     "nodemon": "^1.11.0",
     "pug": "~2.0.0-beta6",
     "static-favicon": "~1.0.0"
+  },
+  "optionalDependencies": {
+    "onoff": "^1.1.1",
+    "node-dht-sensor": "^0.0.31"
   }
 }

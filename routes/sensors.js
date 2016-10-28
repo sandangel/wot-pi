@@ -7,6 +7,10 @@ router.route('/').get(function (req, res, next) {
 });
 
 router.route('/pir').get(function (req, res, next) {
+  res.send(resources.pi.sensors.pir);
+});
+
+router.route('/temperature').get(function (req, res, next) {
   res.send(resources.pi.sensors.temperature);
 });
 
