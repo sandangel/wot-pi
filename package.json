@@ -1,18 +1,19 @@
 {
-  "name": "wot",
-  "version": "1.0.0",
-  "description": "wot-pi example",
-  "repository": "https://github.com/vinhsannguyen91/wot-pi",
-  "main": "wot-server.js",
+  "name": "wot-pi",
+  "version": "0.0.1",
+  "private": true,
   "scripts": {
-    "start": "nodemon wot-server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon ./bin/www"
   },
-  "author": "sand",
-  "license": "ISC",
   "dependencies": {
+    "body-parser": "~1.0.0",
+    "cookie-parser": "~1.0.1",
     "cors": "^2.8.1",
-    "express": "^4.14.0",
-    "nodemon": "^1.11.0"
+    "debug": "~0.7.4",
+    "express": "~4.0.0",
+    "morgan": "~1.0.0",
+    "nodemon": "^1.11.0",
+    "pug": "~2.0.0-beta6",
+    "static-favicon": "~1.0.0"
   }
 }

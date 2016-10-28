@@ -25,7 +25,7 @@
         "gpio": 17
       }
     },
-    "actuator": {
+    "actuators": {
       "leds": {
         "1": {
           "name": "LED 1",
