@@ -15,5 +15,4 @@ app.get('/pi', function (req, res) {
   res.send('This is the WoT-Pi');
 });
 
-
 module.exports = app;
