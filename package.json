@@ -12,6 +12,8 @@
     "debug": "~0.7.4",
     "express": "~4.0.0",
     "morgan": "~1.0.0",
+    "msgpack5": "^3.4.1",
+    "node-json2html": "^1.1.1",
     "nodemon": "^1.11.0",
     "pug": "~2.0.0-beta6",
     "static-favicon": "~1.0.0"

@@ -3,7 +3,8 @@ var express = require('express'),
   resources = require('./../resources/model');
 
 router.route('/').get(function (req, res, next) {
-  res.send(resources.pi.actuators);
+  req.result = resources.pi.actuators;
+  next();
 });
 
 module.exports = router;
