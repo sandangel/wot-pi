@@ -5,11 +5,11 @@ var ledsPlugin = require('./plugins/internal/ledPlugin'),
   dhtPlugin = require('./plugins/internal/DHT11SensorPlugin');
 
 pirPlugin.start({
-  'simulate': true,
+  'simulate': false,
   'frequency': 2000
 });
 dhtPlugin.start({
-  'simulate': true,
+  'simulate': false,
   'frequency': 10000
 });
 

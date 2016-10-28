@@ -1,11 +1,11 @@
 var resources = require('./../../resources/model');
 
 var interval, sensor;
-var model = resources.pi.sensors.pir;
-var pluginName = resources.pi.sensors.pir.name;
+var model = resources.pi.sensors;
+var pluginName = 'Temperature & Humidity';
 var localParams = {
   'simulate': false,
-  'frequency': 2000
+  'frequency': 5000
 };
 
 exports.start = function (params) {
@@ -43,17 +43,24 @@ function connectHardware() {
       }, localParams.frequency);
     }
   };
-  console.info('Hardware %s sensor started!', pluginName);
+  if (sensor.initialize()) {
+    console.info('Hardware %s sensor started!', pluginName);
+    sensor.read();
+  } else {
+    console.warn('Failed to initialize sensor!');
+  }
 };
 
 function simulate() {
   interval = setInterval(function () {
-    model.value = !model.value;
+    model.temperature.value = 1;
+    model.humidity.value = 2;
     showValue();
   }, localParams.frequency);
   console.info('Simulated %s sensor started!', pluginName);
 };
 
 function showValue() {
-  console.info(model.value ? 'there is someone!' : 'not anymore!');
+  console.info('Temperature: %s C, humidity %s \%',
+    model.temperature.value, model.humidity.value);
 };
