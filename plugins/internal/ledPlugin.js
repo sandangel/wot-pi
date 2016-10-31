@@ -44,7 +44,7 @@ function switchOnoOff(value) {
 };
 
 function connectHardware() {
-  var Gpio = require('on/off').Gpio;
+  var Gpio = require('onoff').Gpio;
   actuator = new Gpio(model.gpio, 'out');
   console.info('Hardware %s actuator started!', pluginName);
 };
