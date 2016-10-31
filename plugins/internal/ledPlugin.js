@@ -14,7 +14,7 @@ exports.start = function (params) {
   connectHardware();
 };
 
-export.stop = function () {
+exports.stop = function () {
   actuator.unexport();
   console.info('%s plugin stopped!', pluginName);
 }
