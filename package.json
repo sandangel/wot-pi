@@ -17,7 +17,8 @@
     "nodemon": "^1.11.0",
     "observe-js": "^0.5.7",
     "pug": "^2.0.0-beta6",
-    "static-favicon": "~1.0.0"
+    "static-favicon": "~1.0.0",
+    "webcomponents.js": "^0.7.22"
   },
   "optionalDependencies": {
     "onoff": "^1.1.1",
