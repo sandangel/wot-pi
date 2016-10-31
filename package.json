@@ -16,7 +16,8 @@
     "node-json2html": "^1.1.1",
     "nodemon": "^1.11.0",
     "pug": "^2.0.0-beta6",
-    "static-favicon": "~1.0.0"
+    "static-favicon": "~1.0.0",
+    "object.observer": "^0.2.6"
   },
   "optionalDependencies": {
     "onoff": "^1.1.1",
