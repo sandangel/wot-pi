@@ -15,8 +15,6 @@ exports.start = function () {
   //     return Reflect.get(target, prop);
   //   }
   // });
-
-  connectHardware();
 };
 
 exports.stop = function () {
@@ -26,8 +24,9 @@ exports.stop = function () {
 
 var objectChangeHandler = {
   get: function (target, prop) {
-    console.log('Change detected by plugin for %s...', pluginName);
+    console.info('Change detected by plugin for %s...', pluginName);
     switchOnOff(target[prop]);
+    connectHardware();
   }
 };
 // function observe(what) {
