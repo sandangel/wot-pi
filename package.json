@@ -15,6 +15,7 @@
     "msgpack5": "^3.4.1",
     "node-json2html": "^1.1.1",
     "nodemon": "^1.11.0",
+    "observe-js": "^0.5.7",
     "pug": "^2.0.0-beta6",
     "static-favicon": "~1.0.0"
   },
