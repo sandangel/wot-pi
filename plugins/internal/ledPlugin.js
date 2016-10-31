@@ -3,19 +3,15 @@ var resources = require('./../../resources/model');
 var actuator;
 var model = resources.pi.actuators.leds['1'];
 var pluginName = model.name;
-// var localParams = {
-//   'simulate': false,
-//   'frequency': 2000
-// };
 
 exports.start = function () {
-  var observer = new ObjectObserver(model);
-  observer.open(function (changed) {
-    Object.key(changed).forEach(function (property) {
-      console.info('Change detected by plugin for %s...', pluginName);
-      switchOnOff(changed[property]);
-    });
+
+  // Watch the change of LED
+  model.watch(model.value, function (id, oldval, newval) {
+    console.info('Change detected by plugin for %s...', pluginName);
+    switchOnoOff(newval);
   });
+
   connectHardware();
 };
 
