@@ -6,11 +6,15 @@ var pluginName = model.name;
 
 exports.start = function () {
 
-  // Watch the change of LED
-  model.watch(model.value, function (id, oldval, newval) {
-    console.info('Change detected by plugin for %s...', pluginName);
-    switchOnoOff(newval);
-  });
+  var objectToObserve = new Proxy(model, objectChangeHandler)
+
+  // var proxied = new Proxy(model, {
+  //   get: function (target, prop) {
+  //     console.log('Change detected by plugin for %s...', pluginName);
+  //     switchOnOff(target[prop]);
+  //     return Reflect.get(target, prop);
+  //   }
+  // });
 
   connectHardware();
 };
@@ -20,6 +24,12 @@ exports.stop = function () {
   console.info('%s plugin stopped!', pluginName);
 }
 
+var objectChangeHandler = {
+  get: function (target, prop) {
+    console.log('Change detected by plugin for %s...', pluginName);
+    switchOnOff(target[prop]);
+  }
+};
 // function observe(what) {
 //   Object.observe(what, function (changes) {
 //     console.info('Change detected by plugin for %s...', pluginName);
