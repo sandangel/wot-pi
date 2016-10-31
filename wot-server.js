@@ -13,8 +13,7 @@ dhtPlugin.start({
   'frequency': 10000
 });
 ledPlugin.start({
-  'simulate': false,
-  'frequency': 2000
+  'simulate': false
 });
 
 var server = httpServer.listen(resources.pi.port, function () {
