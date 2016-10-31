@@ -6,20 +6,18 @@
     "start": "nodemon wot-server.js"
   },
   "dependencies": {
-    "body-parser": "^1.0.2",
-    "cookie-parser": "^1.0.1",
-    "cors": "^2.8.1",
-    "debug": "^0.7.4",
-    "express": "^4.0.0",
-    "morgan": "^1.0.1",
-    "msgpack5": "^3.4.1",
-    "node-json2html": "^1.1.1",
+    "bl": "^1.0.0",
+    "body-parser": "^1.13.1",
+    "coap": "^0.15.0",
+    "cors": "^2.7.1",
+    "express": "^4.12.4",
+    "msgpack5": "^3.3.0",
+    "node-json2html": "^1.0.0",
     "nodemon": "^1.11.0",
-    "pug": "^2.0.0-beta6",
-    "static-favicon": "~1.0.0"
+    "ws": "^0.7.2"
   },
   "optionalDependencies": {
-    "onoff": "^1.1.1",
-    "node-dht-sensor": "^0.0.31"
+    "onoff": "^1.0.4",
+    "node-dht-sensor": "^0.0.8"
   }
 }
