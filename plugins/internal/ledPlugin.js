@@ -9,7 +9,6 @@ var pluginName = model.name;
 // };
 
 exports.start = function () {
-  Platform.performMicrotaskCheckpoint();
   var observer = new ObjectObserver(model);
   observer.open(function (changed) {
     Object.key(changed).forEach(function (property) {
