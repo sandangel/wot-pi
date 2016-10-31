@@ -12,10 +12,10 @@ dhtPlugin.start({
   'simulate': false,
   'frequency': 10000
 });
-// ledsPlugin.start({
-//   'simulate': false,
-//   'frequency': 10000
-// });
+ledsPlugin.start({
+  'simulate': false,
+  'frequency': 10000
+});
 
 var server = httpServer.listen(resources.pi.port, function () {
   console.info('Express server listening on port %s', resources.pi.port);
