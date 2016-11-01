@@ -16,7 +16,7 @@ exports.listen = function (server) {
     var url = ws.upgradeReq.url;
     console.info(url);
     try {
-      watch(selectResource(url), function (prop, action, newvalue, oldvalu) {
+      watch(selectResource(url), function () {
         ws.send(JSON.stringify(this), function () {});
       })
     } catch (e) {
@@ -29,10 +29,10 @@ function selectResource(url) {
   var parts = url.split('/');
   console.log(parts);
   parts.shift();
-  console.log(parts.shift());
   var result = resources
   for (var i = 0; i < parts.length; i++) {
     result = result[parts[i]];
+    console.log(result);
   }
   return result;
 }
