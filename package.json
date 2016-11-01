@@ -10,6 +10,7 @@
     "cookie-parser": "^1.0.1",
     "cors": "^2.8.1",
     "debug": "^0.7.4",
+    "ejs": "^2.5.2",
     "express": "^4.0.0",
     "morgan": "^1.0.1",
     "msgpack5": "^3.4.1",

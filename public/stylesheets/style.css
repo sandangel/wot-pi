@@ -19,12 +19,12 @@ table {
 th {
     text-align: center;
 }
-.header {
+header {
   color: #F07A37;
   font-size: 14pt;
   font-weight: bold;
 }
-p.footer {
+footer {
   color: #23ABEE;
   font-size: 9pt;
   text-align: right;;
