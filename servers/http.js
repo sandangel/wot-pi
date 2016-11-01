@@ -9,8 +9,9 @@ var bodyParser = require('body-parser');
 var app = express();
 
 app.set('view engine', 'pug');
-app.set('views', __dirname - '/servers' + '/views');
+app.set('views', __dirname + '/views');
 
+console.log(__dirname.toString() - "/servers");
 
 app.use(bodyParser.json());
 
