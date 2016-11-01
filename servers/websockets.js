@@ -27,7 +27,6 @@ exports.listen = function (server) {
 
 function selectResource(url) {
   var parts = url.split('/');
-  console.log(parts);
   parts.shift();
   var result = resources
   for (var i = 0; i < parts.length; i++) {
