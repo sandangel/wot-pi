@@ -1,27 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" media="screen">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.cs" media="screen">
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <title>Sand's App</title>
-  </head>
-  <body>
-    <header>
-      <h2>Tanaka Scale</h2>
-      <h2>Develop Team</h2>
-    </header>
-    <a><%= title %></a><br />
-    <a><%= message %></a><br />
-    <label class="switch">
+
+<head>
+  <meta charset="utf-8" name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" media="screen">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.cs" media="screen">
+  <script src="http://code.jquery.com/jquery.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <title>Sand's App</title>
+</head>
+
+<body>
+  <header>
+    <h2>Tanaka Scale</h2>
+    <h2>Develop Team</h2>
+  </header>
+  <h3><%= title %></h3><br />
+  <h4><%= message %></h4><br />
+  <label class="switch">
       <input type="checkbox">
       <div class="slider round"></div>
     </label>
-    <footer>
-      <h2>Copyright 2016 Sand</h2>
-    </footer>
+  <form name="form" id="form" onsubmit="return false">
+    <button name="button" id="button" onclick="changeValue();" value="before">Click Me!</button>
+  </form>
 
-  </body>
+  <script type="text/javascript">
+    function changeValue() {
+      // Changes the value of the button
+      document.form.button.value = new Date();
+
+      // Changes the text on the button
+      document.form.button.innerHTML = new Date();
+    }
+  </script>
+  <footer>
+    <h2>Copyright 2016 Sand</h2>
+  </footer>
+
+</body>
+
 </html>
