@@ -12,7 +12,7 @@ exports.start = function () {
     console.log(i);
     // more statements
   }
-  switchOnOff(true);
+  switchOnOff(false);
   // var proxied = new Proxy(model, {
   //   get: function (target, prop) {
   //     console.log('Change detected by plugin for %s...', pluginName);
