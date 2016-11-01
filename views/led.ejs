@@ -31,17 +31,45 @@
         document.form.button.value = true;
         document.form.button.innerHTML = "Switch Off";
       }
+      // $.ajax({
+      //   url: "http://raspi.local/pi/actuators/leds/1",
+      //   type: 'PUT',
+      //   data: {
+      //     value: newVal
+      //   },
+      //   contentType: 'application/json',
+      //   headers: {},
+      //   async: false
+      // });
+    }
+  </script>
+  <input type="checkbox" id="toggle-status" />
+  <script>
+    $(function() {
+      $('#toggle-status').bootstrapToggle({
+        on: 'On',
+        off: 'Off'
+      });
+    });
 
-      var newVal = document.form.button.value;
+    $(function() {
+      $('#toggle-status').change(function() {
+        sendAction("_setStatus", {
+          "status": $(this).prop('checked')
+        });
+      });
+    });
+
+    function sendAction(type, value) {
       $.ajax({
         url: "http://raspi.local/pi/actuators/leds/1",
-        type: 'PUT',
-        data: {
-          value: newVal
-        },
+        dataType: 'json',
+        type: 'put',
+        data: JSON.stringify({
+          "value": true
+        }),
         contentType: 'application/json',
-        headers: {},
-        async: false
+        processData: false
       });
     }
   </script>
