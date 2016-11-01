@@ -12,7 +12,7 @@ var pluginName = model.name;
 exports.start = function () {
 
   watch(model, 'value', function (prop, action, newvalue, oldvalue) {
-    alert(prop + " - action: " + action + " - new: " + newvalue + ", old: " + oldvalue + "... and the context: " + JSON.stringify(this));
+    console.info(prop + " - action: " + action + " - new: " + newvalue + ", old: " + oldvalue + "... and the context: " + JSON.stringify(this));
     switchOnOff(model.value);
   });
 
