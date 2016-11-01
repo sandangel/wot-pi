@@ -17,8 +17,8 @@
   </header>
   <h3><%= title %></h3><br />
   <h4><%= message %></h4><br />
-  <form name="form" id="form" method="PUT" action="">
-    <button type="submit" name="value" id="button" onclick="changeValue();" value=true>Switch off</button>
+  <form name="form" id="form" onsubmit="return false">
+    <button type="button" name="value" id="submitButton" onclick="changeValue();" value=false>Switch On</button>
   </form>
 
   <script type="text/javascript">
@@ -31,8 +31,21 @@
         document.form.button.value = true;
         document.form.button.innerHTML = "Switch Off";
       }
+
+      var newVal = document.form.button.value;
+      $.ajax({
+        url: "http://raspi.local/pi/actuators/leds/1",
+        type: 'PUT',
+        data: {
+          value: newVal
+        },
+        contentType: 'application/json',
+        headers: {},
+        async: false
+      });
     }
   </script>
+
   <footer>
     <h2>Copyright 2016 Sand</h2>
   </footer>
