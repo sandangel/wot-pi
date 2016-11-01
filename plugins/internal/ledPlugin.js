@@ -7,9 +7,8 @@ var pluginName = model.name;
 exports.start = function () {
 
   // var objectToObserve = new Proxy(model, objectChangeHandler)
-  create_gets_sets(model);
-  listen_to(model, "value", function (oldval, newval) {
-    console.info("old : " + oldval + " new : " + newval);
+  watch(model, function () {
+    switchOnOff(model.value);
   });
   connectHardware();
   // var proxied = new Proxy(model, {
@@ -26,34 +25,6 @@ exports.stop = function () {
   console.info('%s plugin stopped!', pluginName);
 };
 
-function create_gets_sets(obj) {
-  var proxy = {};
-  for (var i in obj) {
-    if (obj.hasOwnProperty(i)) {
-      var k = i;
-      proxy["set_" + i] = function (val) {
-        this[k] = val;
-      };
-      proxy["get_" + i] = function () {
-        return this[k];
-      };
-    }
-  };
-  for (var i in proxy) {
-    if (proxy.hasOwnProperty(i)) {
-      obj[i] = proxy[i];
-    }
-  };
-};
-
-function listen_to(obj, prop, handler) {
-  var current_setter = obj["set_" + prop];
-  var old_val = obj["get_" + prop]();
-  obj["set_" + prop] = function (val) {
-    current_setter.apply(obj, [old_val, val]);
-    handler(val);
-  };
-};
 // var objectChangeHandler = {
 //   apply: function (target, thisArg, argumentsList) {
 //     return thisArg[target].apply(this, argumentList);
