@@ -13,7 +13,7 @@ exports.start = function () {
 
   watch(model, 'value', function (prop, action, newvalue, oldvalue) {
     console.info(prop + " - action: " + action + " - new: " + newvalue + ", old: " + oldvalue + "... and the context: " + JSON.stringify(this));
-    switchOnOff(model.value);
+    switchOnOff(newvalue);
   });
 
   connectHardware();

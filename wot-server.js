@@ -1,4 +1,6 @@
-var httpServer = require('./servers/http');
+var httpServer = require('./servers/http'),
+  wsServer = require('./servers/websockets');
+
 var resources = require('./resources/model');
 var ledsPlugin = require('./plugins/internal/ledPlugin'),
   pirPlugin = require('./plugins/internal/pirPlugin'),
@@ -15,5 +17,7 @@ var ledsPlugin = require('./plugins/internal/ledPlugin'),
 ledsPlugin.start();
 
 var server = httpServer.listen(resources.pi.port, function () {
-  console.info('Express server listening on port %s', resources.pi.port);
+  console.info('HTTP server started...');
+  wsServer.listen(server);
+  console.info('Your WoT Pi is up and running on port %s', resources.pi.port);
 });
