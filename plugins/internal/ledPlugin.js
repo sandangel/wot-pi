@@ -7,7 +7,7 @@ var pluginName = model.name;
 exports.start = function () {
 
   var objectToObserve = new Proxy(model, objectChangeHandler)
-
+  connectHardware();
   // var proxied = new Proxy(model, {
   //   get: function (target, prop) {
   //     console.log('Change detected by plugin for %s...', pluginName);
@@ -24,9 +24,13 @@ exports.stop = function () {
 
 var objectChangeHandler = {
   get: function (target, prop) {
+    console.info('Something changed.');
+    return Reflect.get(target, prop);
+  },
+  set: function (target, prop, value) {
     console.info('Change detected by plugin for %s...', pluginName);
-    switchOnOff(target[prop]);
-    connectHardware();
+    switchOnOff(value);
+    return Reflect.set(target, prop, value);
   }
 };
 // function observe(what) {
