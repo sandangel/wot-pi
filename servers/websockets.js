@@ -31,7 +31,6 @@ function selectResource(url) {
   var result = resources
   for (var i = 0; i < parts.length; i++) {
     result = result[parts[i]];
-    console.log(result);
   }
   return result;
 }
