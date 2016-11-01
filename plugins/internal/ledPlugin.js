@@ -1,4 +1,8 @@
 var resources = require('./../../resources/model');
+var WatchJS = require('watchjs');
+var watch = WatchJS.watch;
+var unwatch = WatchJS.unwatch;
+var calWatchers = WatchJS.calWatchers;
 
 var actuator;
 var model = resources.pi.actuators.leds['1'];
