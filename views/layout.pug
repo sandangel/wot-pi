@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title Sand's App
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css', rel='stylesheet', media='screen')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    include ./headerAndFooter/header.pug
+    if (error && error.length > 0)
+      br
+      h4.error-msg= error
+      br
+    block content
+    br
+    include ./headerAndFooter/footer.pug
+  script(src='http://code.jquery.com/jquery.js')
+  script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js')
