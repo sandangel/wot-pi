@@ -6,13 +6,8 @@ var pluginName = model.name;
 
 exports.start = function () {
 
-  // var objectToObserve = new Proxy(model, objectChangeHandler)
+  var objectToObserve = new Proxy(model, objectChangeHandler)
   connectHardware();
-  for (var i = 0; i < 100; i++) {
-    console.log(i);
-    // more statements
-  }
-  switchOnOff(true);
   // var proxied = new Proxy(model, {
   //   get: function (target, prop) {
   //     console.log('Change detected by plugin for %s...', pluginName);
@@ -45,7 +40,7 @@ var objectChangeHandler = {
 //   });
 // };
 
-function switchOnoOff(value) {
+function switchOnOff(value) {
   actuator.write(value === true ? 1 : 0, function () {
     console.info('Changed value of %s to %s', pluginName, value);
   });
