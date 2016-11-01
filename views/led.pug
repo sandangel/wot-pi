@@ -4,9 +4,5 @@ block content
   .container
     h1 Control LED
     p.lead You can do it
-
-    div(data-role="page")
-      div(data-role="main" class="ui-content")
-        form(method="post" action="demoform.asp")
-          label(for="switch") Flip Toggle Switch:
-            input(type="checkbox" data-role="flipswitch" name="switch" id="switch")
+    mixin toggle(type,text)
+    button.btn(class="btn-#{type}",type="button",data-toggle="button",aria-pressed="false",autocomplete="off")= message
