@@ -31,6 +31,20 @@
         document.form.button.value = "false";
         document.form.button.innerHTML = "Switch On!";
       }
+      httpGetAsync('http://raspi.local:8484/pi/actuators/leds/1', function() {
+        console.log("Success");
+      });
+    }
+
+    function httpGetAsync(theUrl, callback) {
+      var xmlHttp = new XMLHttpRequest();
+      var text = "22"
+      xmlHttp.onreadystatechange = function() {
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+          callback(xmlHttp.responseText);
+      }
+      xmlHttp.open("GET", theUrl, true); // true for asynchronous
+      xmlHttp.send(text);
     }
   </script>
   <!-- <input type="checkbox" id="toggle-status" />
