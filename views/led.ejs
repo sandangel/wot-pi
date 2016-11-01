@@ -18,18 +18,18 @@
   <h3><%= title %></h3><br />
   <h4><%= message %></h4><br />
   <form name="form" id="form" onsubmit="return false">
-    <button name="button" id="button" onclick="changeValue();" value=false>Switch On!</button>
+    <button name="button" id="button" onclick="changeValue();" value="false">Switch On!</button>
   </form>
 
   <script type="text/javascript">
     function changeValue() {
 
-      if (document.form.button.value === false) {
-        document.form.button.value = true;
-        document.form.button.innerHTML = "Switch Off";
+      if (document.form.button.value === "false") {
+        document.form.button.value = "true";
+        document.form.button.innerHTML = "Switch Off!";
       } else {
-        document.form.button.value = false;
-        document.form.button.innerHTML = "Switch On";
+        document.form.button.value = "false";
+        document.form.button.innerHTML = "Switch On!";
       }
     }
   </script>
