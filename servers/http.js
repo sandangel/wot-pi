@@ -11,7 +11,7 @@ var app = express();
 app.set('view engine', 'pug');
 app.set('views', __dirname + '/views');
 
-console.log(__dirname.toString() - "/servers");
+console.log(__dirname.toString());
 
 app.use(bodyParser.json());
 
