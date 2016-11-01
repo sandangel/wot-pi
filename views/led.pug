@@ -4,7 +4,9 @@ block content
   .container
     h1 Control LED
     p.lead You can do it
-    <label class="switch">
-    <input type="checkbox">
-    <div class="slider round"></div>
-    </label>
+
+    div(data-role="page")
+      div(data-role="main" class="ui-content")
+        form(method="post" action="demoform.asp")
+          label(for="switch") Flip Toggle Switch:
+            input(type="checkbox" data-role="flipswitch" name="switch" id="switch")
