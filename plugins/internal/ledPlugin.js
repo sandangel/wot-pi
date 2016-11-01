@@ -6,8 +6,9 @@ var pluginName = model.name;
 
 exports.start = function () {
 
-  var objectToObserve = new Proxy(model, objectChangeHandler)
+  // var objectToObserve = new Proxy(model, objectChangeHandler)
   connectHardware();
+  switchOnOff(true);
   // var proxied = new Proxy(model, {
   //   get: function (target, prop) {
   //     console.log('Change detected by plugin for %s...', pluginName);
