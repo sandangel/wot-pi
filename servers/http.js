@@ -9,21 +9,20 @@ var bodyParser = require('body-parser');
 var app = express();
 
 app.set('view engine', 'pug');
-app.set('views', __dirname + '/views');
+app.set('views', __dirname.replace('servers', 'views'));
 
-console.log(__dirname.toString());
+console.log(__dirname.replace('servers', 'views');
 
-app.use(bodyParser.json());
+    app.use(bodyParser.json());
 
-app.use(cors());
+    app.use(cors());
 
-app.use('/pi/actuators', actuatorsRoutes);
-app.use('/pi/sensors', sensorsRoutes);
+    app.use('/pi/actuators', actuatorsRoutes); app.use('/pi/sensors', sensorsRoutes);
 
-app.get('/pi', function (req, res) {
-  res.send('This is the WoT-Pi');
-});
+    app.get('/pi', function (req, res) {
+      res.send('This is the WoT-Pi');
+    });
 
-app.use(converter());
+    app.use(converter());
 
-module.exports = app;
+    module.exports = app;
