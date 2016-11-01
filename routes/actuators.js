@@ -9,6 +9,10 @@ router.route('/').get(function (req, res, next) {
 
 router.route('/leds/:id').get(function (req, res, next) {
   req.result = resources.pi.actuators.leds[req.params.id];
+  res.render('led', {
+    title: 'Hey',
+    message: 'Hello there!'
+  });
   next();
 });
 
