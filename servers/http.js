@@ -12,7 +12,7 @@ app.set('view engine', 'ejs');
 app.set('views', __dirname.replace('servers', 'views'));
 
 app.use(bodyParser.json());
-
+app.use(express.static(__dirname.replace('servers', 'public')));
 app.use(cors());
 
 app.use('/pi/actuators', actuatorsRoutes);
