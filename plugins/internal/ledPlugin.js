@@ -6,13 +6,8 @@ var pluginName = model.name;
 
 exports.start = function () {
 
-  // var objectToObserve = new Proxy(model, objectChangeHandler)
+  var objectToObserve = new Proxy(model, objectChangeHandler)
   connectHardware();
-  for (var i = 0; i < 100; i++) {
-    console.log(i);
-    // more statements
-  }
-  switchOnOff(false);
   // var proxied = new Proxy(model, {
   //   get: function (target, prop) {
   //     console.log('Change detected by plugin for %s...', pluginName);
@@ -28,14 +23,18 @@ exports.stop = function () {
 }
 
 var objectChangeHandler = {
-  get: function (target, prop) {
-    console.info('Something changed.');
-    return Reflect.get(target, prop);
+  apply: function (target, thisArg, argumentsList) {
+    return thisArg[target].apply(this, argumentList);
   },
-  set: function (target, prop, value) {
-    console.info('Change detected by plugin for %s...', pluginName);
+  deleteProperty: function (target, property) {
+    console.log("Deleted %s", property);
+    return true;
+  },
+  set: function (target, property, value, receiver) {
+    target[property] = value;
     switchOnOff(value);
-    return Reflect.set(target, prop, value);
+    console.log("Set %s to %o", property, value);
+    return true;
   }
 };
 // function observe(what) {
