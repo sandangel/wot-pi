@@ -24,12 +24,12 @@
   <script type="text/javascript">
     function changeValue() {
 
-      if (document.form.button.value === true) {
-        document.form.button.value = false;
-        document.form.button.innerHTML = "Switch On";
-      } else {
+      if (document.form.button.value === false) {
         document.form.button.value = true;
         document.form.button.innerHTML = "Switch Off";
+      } else {
+        document.form.button.value = false;
+        document.form.button.innerHTML = "Switch On";
       }
     }
   </script>
