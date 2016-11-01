@@ -17,22 +17,18 @@
   </header>
   <h3><%= title %></h3><br />
   <h4><%= message %></h4><br />
-  <label class="switch">
-      <input type="checkbox">
-      <div class="slider round"></div>
-    </label>
-  <form name="form" id="form" onsubmit="return false">
-    <button name="button" id="button" onclick="changeValue();" value="true">Switch off</button>
+  <form name="form" id="form" onsubmit="return false" method="PUT" action="">
+    <button name="value" id="button" onclick="changeValue();" value=true>Switch off</button>
   </form>
 
   <script type="text/javascript">
     function changeValue() {
 
       if (document.form.button.value === "true") {
-        document.form.button.value = "false";
+        document.form.button.value = false;
         document.form.button.innerHTML = "Switch On";
       } else {
-        document.form.button.value = "true";
+        document.form.button.value = true;
         document.form.button.innerHTML = "Switch Off";
       }
     }
