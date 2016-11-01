@@ -27,11 +27,14 @@
 
   <script type="text/javascript">
     function changeValue() {
-      // Changes the value of the button
-      document.form.button.value = "false";
 
-      // Changes the text on the button
-      document.form.button.innerHTML = "Switch On";
+      if (document.form.button.value === "true") {
+        document.form.button.value = "false";
+        document.form.button.innerHTML = "Switch On";
+      } else {
+        document.form.button.value = "true";
+        document.form.button.innerHTML = "Switch Off";
+      }
     }
   </script>
   <footer>
