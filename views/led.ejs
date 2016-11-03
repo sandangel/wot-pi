@@ -47,37 +47,6 @@
       xmlHttp.send(text);
     }
   </script>
-  <!-- <input type="checkbox" id="toggle-status" />
-  <script>
-    $(function() {
-      $('#toggle-status').bootstrapToggle({
-        on: 'On',
-        off: 'Off'
-      });
-    });
-
-    $(function() {
-      $('#toggle-status').change(function() {
-        sendAction("_setStatus", {
-          "status": $(this).prop('checked')
-        });
-      });
-    });
-
-    function sendAction(type, value) {
-      $.ajax({
-        url: "http://raspi.local/pi/actuators/leds/1",
-        dataType: 'json',
-        type: 'put',
-        data: JSON.stringify({
-          "value": true
-        }),
-        contentType: 'application/json',
-        processData: false
-      });
-    }
-  </script> -->
-
   <footer>
     <h2>Copyright 2016 Sand</h2>
   </footer>
