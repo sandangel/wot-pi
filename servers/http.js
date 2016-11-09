@@ -1,6 +1,7 @@
 var express = require('express');
 var actuatorsRoutes = require('./../routes/actuators');
 var sensorsRoutes = require('./../routes/sensors');
+var thingsRoutes = require('./../routes/things');
 var resources = require('./../resources/model');
 var converter = require('./../middleware/converter');
 var cors = require('cors');
@@ -15,10 +16,11 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname.replace('servers', 'public')));
 app.use(cors());
 
+app.use('/things', thingsRoutes);
 app.use('/pi/actuators', actuatorsRoutes);
 app.use('/pi/sensors', sensorsRoutes);
 
-app.get('/pi', function (req, res) {
+app.get('/pi', function(req, res) {
   res.send('This is the WoT-Pi');
 });
 
