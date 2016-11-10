@@ -13,7 +13,7 @@ function connectHardware() {
   var sensor = {
     read: function() {
       coap.request({
-          host: 'localhost',
+          host: '192.168.0.28',
           port: 5683,
           pathname: '/co2',
           options: {
