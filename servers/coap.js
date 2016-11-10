@@ -2,6 +2,7 @@ var coap = require('coap'),
   utils = require('./../utils/utils');
 
 var port = 5683;
+
 coap.createServer(function(req, res) {
   console.info('CoAP device got a request for %s', req.url);
   if (req.headers['Accept'] != 'application/json') {

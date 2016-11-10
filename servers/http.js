@@ -16,14 +16,14 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname.replace('servers', 'public')));
 app.use(cors());
 
-app.use('/things', thingsRoutes);
 app.use('/pi/actuators', actuatorsRoutes);
 app.use('/pi/sensors', sensorsRoutes);
+app.use('/things', thingsRoutes);
 
 app.get('/pi', function(req, res) {
   res.send('This is the WoT-Pi');
 });
 
-// app.use(converter());
+app.use(converter());
 
 module.exports = app;
