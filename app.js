@@ -37,7 +37,7 @@ io.on('connection', function(socket) {
         if (err) throw err;
         obj = JSON.parse(data);
         obj.pi.actuators.leds[1].value = msg;
-        fs.writeFile('./resources/test.json', JSON.stringify(obj));
+        fs.writeFile('./resources/resources.json', JSON.stringify(obj));
       });
     }
   });

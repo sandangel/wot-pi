@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "dependencies": {
     "body-parser": "^1.0.2",
@@ -23,5 +23,5 @@
   "optionalDependencies": {
     "onoff": "^1.1.1",
     "node-dht-sensor": "^0.0.31"
-}
+  }
 }
