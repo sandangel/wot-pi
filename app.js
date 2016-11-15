@@ -56,7 +56,7 @@ io.on('connection', function(socket) {
   socket.on('chat message', function(msg) {
     io.emit('chat message', msg);
     if (msg.toString() == "true") {
-      model.pi.actuators.leds['1'].value = "true";
+      model.value = "true";
     }
   });
 })
