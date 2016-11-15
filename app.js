@@ -1,7 +1,6 @@
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var fs = require('fs');
 var ledsPlugin = require('./plugins/ledPlugin')
 
 var bodyParser = require('body-parser');
