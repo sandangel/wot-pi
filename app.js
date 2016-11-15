@@ -9,6 +9,7 @@ var resources = require('./resources/model');
 var model = resources.pi.actuators.leds['1'];
 
 app.use(bodyParser.json());
+app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html');
