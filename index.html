@@ -36,19 +36,13 @@
       $('#messages').append($('<li>').text(msg));
     });
     $('#sw').change(function() {
-      if ($(this).val() == 'FALSE') {
+      if ($(this).is(':checked')) {
         $(this).val('TRUE');
       } else {
         $(this).val('FALSE');
       }
       socket.emit('ledSwitch', $('#sw').val());
     });
-    // $(".target").change(function() {
-    //   alert("Handler for .change() called.");
-    // });
-    // $("#other").click(function() {
-    //   $(".target").change();
-    // });
   </script>
 </body>
 <footer>
