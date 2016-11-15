@@ -20,7 +20,7 @@ io.on('connection', function(socket) {
     io.emit('chat message', msg);
     if (msg.toString() == "true") {
       var obj;
-      fs.readFile('./resources/resources.json', 'utf8', function(err, data) {
+      fs.readFile('./resources/resources-update.json', 'utf8', function(err, data) {
         if (err) throw err;
         obj = JSON.parse(data);
         obj.pi.actuators.leds[1].value = msg;
