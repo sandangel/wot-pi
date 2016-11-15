@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "wot-pi",
   "version": "0.0.1",
   "private": true,
@@ -17,29 +16,12 @@
     "node-json2html": "^1.1.1",
     "nodemon": "^1.11.0",
     "pug": "^2.0.0-beta6",
+    "socket.io": "^1.5.1",
     "watchjs": "0.0.0",
     "ws": "^1.1.1"
   },
   "optionalDependencies": {
     "onoff": "^1.1.1",
     "node-dht-sensor": "^0.0.31"
-=======
-  "name": "socket",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "sand",
-  "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.15.2",
-    "express": "^4.14.0",
-    "nodemon": "^1.11.0",
-    "onoff": "^1.1.1",
-    "socket.io": "^1.5.1",
-    "watchjs": "0.0.0"
->>>>>>> 04e2531a8957a4e1c357bab6d059dd3633fc774f
-  }
+}
 }
