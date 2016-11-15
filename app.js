@@ -26,6 +26,17 @@ io.on('connection', function(socket) {
       model.value = false;
     }
   });
+
+  socket.on('ledSwitch', function(led) {
+    io.emit('ledSwitch', led);
+    if (led.toString() == "TRUE") {
+      model.value = true;
+      console.log('on');
+    } else if (led.toString() == "FALSE") {
+      model.value = false;
+      console.log('off');
+    }
+  });
 })
 
 ledsPlugin.start();
