@@ -13,7 +13,7 @@ fs.readFile('./resources/resources.json', 'utf8', function(err, data) {
   obj = JSON.parse(data);
 });
 // fs.writeFileSync('./resources/resources-update.json', JSON.stringify(obj));
-var resources = JSON.stringify(obj);
+var resources = require('./resources/resources.json');
 var actuator;
 var model = resources.pi.actuators.leds['1'];
 var pluginName = model.name;
