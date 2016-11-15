@@ -24,7 +24,7 @@ io.on('connection', function(socket) {
         if (err) throw err;
         obj = JSON.parse(data);
         obj.pi.actuators.leds[1].value = msg;
-        fs.writeFile('./resources/resources.json', JSON.stringify(obj));
+        fs.writeFile('./resources/resources-update.json', JSON.stringify(obj));
         var resources = require('./resources/model');
         var actuator;
         var model = resources.pi.actuators.leds['1'];

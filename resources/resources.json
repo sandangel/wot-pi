@@ -29,7 +29,7 @@
       "leds": {
         "1": {
           "name": "LED 1",
-          "value": false,
+          "value": "false",
           "gpio": 4
         },
         "2": {
