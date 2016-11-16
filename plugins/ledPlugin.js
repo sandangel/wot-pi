@@ -5,21 +5,22 @@ var watch = WatchJS.watch;
 var unwatch = WatchJS.unwatch;
 var calWatchers = WatchJS.calWatchers;
 
-var actuator;
+var actuator = [];
 var model = [];
 
 exports.start = function() {
   model.push(resources.pi.actuators.leds['1']);
+  model.push(resources.pi.actuators.leds['2']);
   watch(model[0], 'value', function(prop, action, newvalue, oldvalue) {
-    switchOnOff(newvalue);
+    switchOnOff(0, newvalue);
   });
 
-  // watch(model2, 'value', function(prop, action, newvalue, oldvalue) {
-  //   switchOnOff(newvalue);
-  // });
+  watch(model[1], 'value', function(prop, action, newvalue, oldvalue) {
+    switchOnOff(1, newvalue);
+  });
 
   connectHardware(model[0]);
-  // connectHardware(model2);
+  connectHardware(model[1]);
 };
 
 exports.stop = function() {
@@ -27,15 +28,15 @@ exports.stop = function() {
   console.info('%s plugin stopped!', model[0].name);
 };
 
-function switchOnOff(value) {
-  actuator.write(value === true ? 1 : 0, function() {
+function switchOnOff(numb, value) {
+  actuator[numb].write(value === true ? 1 : 0, function() {
     console.info('Changed value of %s to %s', model[0].name, value);
   });
 };
 
 function connectHardware(led) {
   var Gpio = require('onoff').Gpio;
-  actuator = new Gpio(led.gpio, 'out');
-  console.info(actuator);
+  var numb = new Gpio(led.gpio, 'out');
+  actuator.push(numb);
   console.info('Hardware %s actuator started!', led.name);
 };
