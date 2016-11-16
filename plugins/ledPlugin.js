@@ -30,7 +30,7 @@ exports.stop = function() {
 
 function switchOnOff(numb, value) {
   actuator[numb].write(value === true ? 1 : 0, function() {
-    console.info('Changed value of %s to %s', actuator[numb].gpio, value);
+    console.info('Changed value of Gpio %s to %s', actuator[numb].gpio, value);
   });
 };
 
