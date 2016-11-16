@@ -12,12 +12,7 @@ var model = [];
 // var pluginName = model.name;
 
 exports.start = function() {
-  model.push({
-    resources.pi.actuators.leds['1']
-  });
-  model.push({
-    resources.pi.actuators.leds['2']
-  });
+  model.push(resources.pi.actuators.leds['1']);
   watch(model[0], 'value', function(prop, action, newvalue, oldvalue) {
     switchOnOff(newvalue);
   });
