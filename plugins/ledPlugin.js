@@ -6,17 +6,24 @@ var unwatch = WatchJS.unwatch;
 var calWatchers = WatchJS.calWatchers;
 
 var actuator;
-var model = resources.pi.actuators.leds['1'];
+var model1 = resources.pi.actuators.leds['1'];
+var model2 = resources.pi.actuators.leds['2'];
 var pluginName = model.name;
 
 exports.start = function() {
 
-  watch(model, 'value', function(prop, action, newvalue, oldvalue) {
-    console.info(prop + " - action: " + action + " - new: " + newvalue + ", old: " + oldvalue + "... and the context: " + JSON.stringify(this));
+  watch(model1, 'value', function(prop, action, newvalue, oldvalue) {
+    // console.info(prop + " - action: " + action + " - new: " + newvalue + ", old: " + oldvalue + "... and the context: " + JSON.stringify(this));
     switchOnOff(newvalue);
   });
 
-  connectHardware();
+  // watch(model2, 'value', function(prop, action, newvalue, oldvalue) {
+  //   console.info(prop + " - action: " + action + " - new: " + newvalue + ", old: " + oldvalue + "... and the context: " + JSON.stringify(this));
+  //   switchOnOff(newvalue);
+  // });
+
+  connectHardware(model1);
+  // connectHardware(model2);
 };
 
 exports.stop = function() {
@@ -30,8 +37,9 @@ function switchOnOff(value) {
   });
 };
 
-function connectHardware() {
+function connectHardware(model) {
   var Gpio = require('onoff').Gpio;
   actuator = new Gpio(model.gpio, 'out');
+  console.info(actuator);
   console.info('Hardware %s actuator started!', pluginName);
 };
