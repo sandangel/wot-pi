@@ -36,9 +36,9 @@ function switchOnOff(value) {
   });
 };
 
-function connectHardware(model) {
+function connectHardware(led) {
   var Gpio = require('onoff').Gpio;
-  actuator = new Gpio(model.gpio, 'out');
+  actuator = new Gpio(led.gpio, 'out');
   console.info(actuator);
-  console.info('Hardware %s actuator started!', model[0].name);
+  console.info('Hardware %s actuator started!', led.name);
 };
