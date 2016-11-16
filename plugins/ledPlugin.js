@@ -7,9 +7,6 @@ var calWatchers = WatchJS.calWatchers;
 
 var actuator;
 var model = [];
-// var model1 = resources.pi.actuators.leds['1'];
-// var model2 = resources.pi.actuators.leds['2'];
-// var pluginName = model.name;
 
 exports.start = function() {
   model.push(resources.pi.actuators.leds['1']);
