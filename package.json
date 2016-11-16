@@ -1,23 +1,25 @@
 {
-  "name": "wot-pi",
-  "version": "0.0.1",
+  "name": "full-socket",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon wot-server.js"
+    "start": "node ./bin/www"
   },
   "dependencies": {
-    "body-parser": "^1.0.2",
-    "cookie-parser": "^1.0.1",
+    "body-parser": "~1.15.2",
+    "cookie-parser": "~1.4.3",
     "cors": "^2.8.1",
-    "debug": "^0.7.4",
-    "express": "^4.0.0",
-    "morgan": "^1.0.1",
     "msgpack5": "^3.4.1",
+    "debug": "~2.2.0",
     "node-json2html": "^1.1.1",
+    "ejs": "~2.5.2",
     "nodemon": "^1.11.0",
-    "pug": "^2.0.0-beta6",
+    "ws": "^1.1.1",
+    "express": "~4.14.0",
     "watchjs": "0.0.0",
-    "ws": "^1.1.1"
+    "morgan": "~1.7.0",
+    "serve-favicon": "~2.3.0",
+    "socket.io": "^1.5.1"
   },
   "optionalDependencies": {
     "onoff": "^1.1.1",

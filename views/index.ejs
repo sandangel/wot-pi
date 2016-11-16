@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>LED Controller</title>
+  <meta name="viewport" content="width=400px" />
+
+  <script src="socket.io/socket.io.js"></script>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <header>
+    <h2>Tanaka Scale</h2>
+    <h2>Develop Team</h2>
+  </header>
+  <ul id="messages"></ul>
+  <form action="">
+    <input id="m" autocomplete="off" /><button>Send</button> <br><br>
+  </form>
+  <h3>LED 1</h3>
+  <label class="switch">
+    <input class="target" type="checkbox" name="switch" id="sw1" value="FALSE" />
+    <div class="slider round"></div>
+  </label>
+  <h3>LED 2</h3>
+  <label class="switch">
+    <input class="target" type="checkbox" name="switch" id="sw2" value="FALSE" />
+    <div class="slider round"></div>
+  </label>
+  <script src="/socket.io/socket.io.js"></script>
+  <!-- <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script> -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script>
+    var socket = io();
+    $('form').submit(function() {
+      socket.emit('chat message', $('#m').val());
+      $('#m').val('');
+      return false;
+    });
+    socket.on('chat message', function(msg) {
+      $('#messages').append($('<li>').text(msg));
+    });
+    $('#sw1').change(function() {
+      if ($(this).is(':checked')) {
+        $(this).val('TRUE');
+      } else {
+        $(this).val('FALSE');
+      }
+      socket.emit('led1Switch', $('#sw1').val());
+    });
+    $('#sw2').change(function() {
+      if ($(this).is(':checked')) {
+        $(this).val('TRUE');
+      } else {
+        $(this).val('FALSE');
+      }
+      socket.emit('led2Switch', $('#sw2').val());
+    });
+  </script>
+</body>
+<footer>
+  <h2>Copyright 2016 Sand</h2>
+</footer>
+
+</html>
