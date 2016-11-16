@@ -24,8 +24,12 @@ exports.start = function() {
 };
 
 exports.stop = function() {
-  actuator.unexport();
-  console.info('%s plugin stopped!', model[0].name);
+  for (var i = 0; i < actuator.length; i++) {
+    actuator[i].unexport();
+    console.info('%s plugin stopped!', model[i].name);
+  }
+  // actuator.unexport();
+  // console.info('%s plugin stopped!', model[0].name);
 };
 
 function switchOnOff(numb, value) {
