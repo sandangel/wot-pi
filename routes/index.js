@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
   // ledsPlugin.start();
   res.render('index', {
     "led1": model[0].value,
-    "led2": model[0].value
+    "led2": model[1].value
   });
 });
 
