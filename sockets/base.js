@@ -7,7 +7,7 @@ var model = [];
 module.exports = function(io) {
   io.on('connection', function(socket) {
     model.push(resources.pi.actuators.leds['1']);
-    model.push(resources.pi.actuators.leds['1']);
+    model.push(resources.pi.actuators.leds['2']);
 
     console.log('user connected');
     socket.on('chat message', function(msg) {
