@@ -18,8 +18,14 @@
   <form action="">
     <input id="m" autocomplete="off" /><button>Send</button> <br><br>
   </form>
+  <h3>LED 1</h3>
   <label class="switch">
-    <input class="target" type="checkbox" name="switch" id="sw" value="FALSE" />
+    <input class="target" type="checkbox" name="switch" id="sw1" value="FALSE" />
+    <div class="slider round"></div>
+  </label>
+  <h3>LED 2</h3>
+  <label class="switch">
+    <input class="target" type="checkbox" name="switch" id="sw2" value="FALSE" />
     <div class="slider round"></div>
   </label>
   <script src="/socket.io/socket.io.js"></script>
@@ -35,13 +41,21 @@
     socket.on('chat message', function(msg) {
       $('#messages').append($('<li>').text(msg));
     });
-    $('#sw').change(function() {
+    $('#sw1').change(function() {
       if ($(this).is(':checked')) {
         $(this).val('TRUE');
       } else {
         $(this).val('FALSE');
       }
-      socket.emit('ledSwitch', $('#sw').val());
+      socket.emit('led1Switch', $('#sw1').val());
+    });
+    $('#sw2').change(function() {
+      if ($(this).is(':checked')) {
+        $(this).val('TRUE');
+      } else {
+        $(this).val('FALSE');
+      }
+      socket.emit('led2Switch', $('#sw2').val());
     });
   </script>
 </body>

@@ -7,7 +7,8 @@ var ledsPlugin = require('./plugins/ledPlugin')
 var bodyParser = require('body-parser');
 
 var resources = require('./resources/model');
-var model = resources.pi.actuators.leds['1'];
+var model1 = resources.pi.actuators.leds['1'];
+var model2 = resources.pi.actuators.leds['2'];
 
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
@@ -21,20 +22,30 @@ io.on('connection', function(socket) {
   socket.on('chat message', function(msg) {
     io.emit('chat message', msg);
     if (msg.toString() == "true") {
-      model.value = true;
+      model1.value = true;
     } else if (msg.toString() == "false") {
-      model.value = false;
+      model1.value = false;
     }
   });
 
-  socket.on('ledSwitch', function(led) {
-    io.emit('ledSwitch', led);
+  socket.on('led1Switch', function(led) {
+    io.emit('led1Switch', led);
     if (led.toString() == "TRUE") {
-      model.value = true;
-      console.log('on');
+      model1.value = true;
+      console.log('1 on');
     } else if (led.toString() == "FALSE") {
-      model.value = false;
-      console.log('off');
+      model1.value = false;
+      console.log('1 off');
+    }
+  });
+  socket.on('led2Switch', function(led) {
+    io.emit('led2Switch', led);
+    if (led.toString() == "TRUE") {
+      model2.value = true;
+      console.log('2 on');
+    } else if (led.toString() == "FALSE") {
+      model2.value = false;
+      console.log('2 off');
     }
   });
 })
