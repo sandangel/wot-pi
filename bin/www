@@ -28,7 +28,7 @@ require('../sockets/base')(io);
  */
 var ledsPlugin = require('../plugins/ledPlugin');
 
-// ledsPlugin.start();
+ledsPlugin.start();
 
 server.listen(port);
 server.on('error', onError);
