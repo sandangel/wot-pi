@@ -14,8 +14,6 @@
     <h2>Tanaka Scale</h2>
     <h2>Develop Team</h2>
   </header>
-  <h4><%= led1 %></h4><br>
-  <h4><%= led2 %></h4>
   <ul id="messages"></ul>
   <form action="">
     <input id="m" autocomplete="off" /><button>Send</button> <br><br>
@@ -33,6 +31,10 @@
   <script src="/socket.io/socket.io.js"></script>
   <!-- <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script> -->
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript" src="/javascripts/ejs_production.js">
+    // var led1State = <%- led1 %>;
+    // $("#MyEdit").html(led1State);
+  </script>
   <script>
     var socket = io();
     $('form').submit(function() {
@@ -43,6 +45,12 @@
     socket.on('chat message', function(msg) {
       $('#messages').append($('<li>').text(msg));
     });
+
+    socket.on('serial data received', function(msg) {
+      $('#messages').html($('<li>').text(msg));
+      console.log(msg);
+    });
+
     $('#sw1').change(function() {
       if ($(this).is(':checked')) {
         $(this).val('TRUE');

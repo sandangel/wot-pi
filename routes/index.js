@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
   // ledsPlugin.stop();
   // ledsPlugin.start();
   res.render('index', {
-    "led1": model[0].value,
+    "led1": "san", //model[0].value,
     "led2": model[1].value
   });
 });
