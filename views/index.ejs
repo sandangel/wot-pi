@@ -36,7 +36,7 @@
     // $("#MyEdit").html(led1State);
   </script>
   <script>
-    var socket = io();
+    var socket = io('http://localhost:3000');
     $('form').submit(function() {
       socket.emit('chat message', $('#m').val());
       $('#m').val('');
@@ -46,9 +46,8 @@
       $('#messages').append($('<li>').text(msg));
     });
 
-    socket.on('serial data received', function(msg) {
+    socket.on('data received', function(msg) {
       $('#messages').html($('<li>').text(msg));
-      console.log(msg);
     });
 
     $('#sw1').change(function() {
