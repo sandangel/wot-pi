@@ -19,6 +19,10 @@ module.exports = function(io) {
       }
     });
 
+    socket.on('data received', function(msg) {
+      io.emit('data received', msg);
+    });
+
     socket.on('led1Switch', function(led) {
       io.emit('led1Switch', led);
       if (led.toString() == "TRUE") {
