@@ -36,7 +36,7 @@
     // $("#MyEdit").html(led1State);
   </script>
   <script>
-    var socket = io('http://localhost:3000');
+    var socket = io('http://raspi:3000');
     $('form').submit(function() {
       socket.emit('chat message', $('#m').val());
       $('#m').val('');
